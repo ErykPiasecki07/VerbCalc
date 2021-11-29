@@ -15,4 +15,5 @@ Eryk
 ## Contributors
 
 - Nandini Maheshwari <nandinimaheshwari7107@gmail.com>
-- Syed Atif <syedatif4118> <syedatif4118@gmail.com
+- Syed Atif <syedatif4118> <syedatif4118@gmail.com>
+- Jacques de Dixmude Slavic Maxime <max.jacques@student.uclouvain.be>
