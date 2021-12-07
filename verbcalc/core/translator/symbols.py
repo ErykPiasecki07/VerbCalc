@@ -24,7 +24,7 @@ class Symbols:
         self._divisions = ['divided by']
         self._exponentiations = ['to the power of']
         self._absolutes = ['absolute of', 'absolute value of']
-        self._modulo = ['mod', 'modulo']
+        self._modulo = [ 'modulo', 'mod']
         self._roots = ['root of']
         self._questions = ['what is the result of', 'what is', 'calculate',
                            'result of', 'how do you', 'find',' how much',
