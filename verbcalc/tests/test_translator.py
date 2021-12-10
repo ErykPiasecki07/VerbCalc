@@ -29,19 +29,6 @@ class TestTranslator(unittest.TestCase):
                   verbcalc.translate('2 mod 2')]
         self.assertListEqual(self.expected, values)
 
-    def test_translation_with_custom_symbols(self):
-        values = [
-            verbcalc.translate('2 foo 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 bar 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 boo 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 far 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 to the power of 2',
-                               symbols=self._custom_symbols),
-            verbcalc.translate('absolute of 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 mod 2', symbols=self._custom_symbols)
-        ]
-        self.assertListEqual(self.expected, values)
-
 
 if __name__ == '__main__':
     unittest.main()
