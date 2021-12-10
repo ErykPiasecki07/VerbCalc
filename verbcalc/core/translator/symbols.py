@@ -4,7 +4,6 @@
 from os import path, getcwd
 from json import load
 
-
 DEFAULT_SYMBOL_PATH = '../../data/phrasings.json'
 
 
@@ -25,7 +24,8 @@ class Symbols:
         symbol_dictionary:
             Stores all the symbol keys and their corresponding values.
     """
-    def __init__(self, path_to_phrasings=DEFAULT_SYMBOL_PATH):
+
+    def __init__(self, path_to_phrasings: str = DEFAULT_SYMBOL_PATH):
         if path_to_phrasings is DEFAULT_SYMBOL_PATH:
             actual_path = path.join(path.dirname(__file__), path_to_phrasings)
         else:
@@ -44,4 +44,3 @@ class Symbols:
             'root': phrasings.get('roots'),
             '': phrasings.get('questions')
         }
-

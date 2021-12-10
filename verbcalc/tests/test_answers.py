@@ -2,9 +2,7 @@
     Tests how custom answers work.
 """
 import unittest
-from unittest.mock import patch
-from random import Random
-from verbcalc.core.answers import CustomAnswers
+import verbcalc
 
 
 class TestCustomAnswers(unittest.TestCase):
@@ -12,20 +10,20 @@ class TestCustomAnswers(unittest.TestCase):
     Tests how custom answers work.
     """
     def setUp(self):
-        self.random = Random(666)
+        self._expected_default = ['It is', 'The answer is', 'The result is',
+                                  'The total is', 'Altogether you get']
+        self._expected_custom = ['Foo', 'Bar']
 
-    def test_default_phrase(self):
-        self.assertEqual(CustomAnswers().get_phrase(default=True),
-                         'The result is')
+    def test_random_phrase(self):
+        result = verbcalc.calculate('What is 2 plus 2')
+        check = [i for i in self._expected_default if i in result]
+        self.assertTrue(check)
 
-    # pylint: disable=W0212
-    @patch('verbcalc.core.answers.random')
-    def test_random_phrase(self, random):
-        phrases = CustomAnswers()
-        self.assertEqual(phrases.get_phrase() in phrases._answers, True)
-
-        random.randrange._mock_side_effect = self.random.randrange
-        self.assertEqual(CustomAnswers().get_phrase(), 'The total is')
+    def test_custom_random_phrase(self):
+        result = verbcalc.calculate(
+            'What is 2 plus 2', path_to_answers='fixtures/custom_answers.json')
+        check = [i for i in self._expected_custom if i in result]
+        self.assertTrue(check)
 
 
 if __name__ == '__main__':
