@@ -24,7 +24,7 @@ class Symbols:
     """
     def __init__(self, path_to_phrasings='../../data/phrasings.json'):
         actual_path = path.join(path.dirname(__file__), path_to_phrasings)
-        with open(actual_path) as file:
+        with open(actual_path, encoding='UTF-8') as file:
             phrasings = load(file)
 
         self.symbol_dictionary = {
