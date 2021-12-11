@@ -12,13 +12,20 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
-          pip-dependency-file: requirements_dev.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
+          pip-dependency-file: requirements_dev.txt
       - run:
           name: Lint
           command: pylint verbcalc
+      -run:
+          name: Install tree
+          command: apt install tree
+      -run:
+        name: Show tree
+        command: tree
       - run:
           name: Run tests
           command: pytest
+    resource-class: small
 
 workflows:
   Build_and_test:

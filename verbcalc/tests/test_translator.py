@@ -13,6 +13,7 @@ class TestTranslator(unittest.TestCase):
     def setUp(self):
         self.expected = ['2 + 2', '2 - 2', '2 * 2', '2 / 2', '2 ** 2',
                          'abs 2', '2 % 2']
+        self.path = 'fixtures/custom_phrasings.json'
 
     def test_translation(self):
         values = [verbcalc.translate('2 plus 2'),
@@ -25,8 +26,7 @@ class TestTranslator(unittest.TestCase):
         self.assertListEqual(self.expected, values)
 
     def test_translation_with_custom_phrasings(self):
-        custom_symbols = verbcalc.Symbols(path_to_phrasings=
-                                          'fixtures/custom_phrasings.json')
+        custom_symbols = verbcalc.Symbols(path_to_phrasings=self.path)
         self.assertEqual('2 + 2', verbcalc.translate(
             '2 foo 2', custom_symbols))
 
