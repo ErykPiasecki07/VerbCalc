@@ -1,26 +1,11 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@1.2
-
-
-jobs:
-  build-and-test:
-    docker:
-      - image: cimg/python:3.8
-    steps:
-      - checkout
-      - python/install-packages:
-          pkg-manager: pip
-          pip-dependency-file: requirements_dev.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
-      - run:
-          name: Lint
-          command: pylint verbcalc
-      - run:
-          name: Run tests
-          command: pytest
+  python: circleci/python@1.5.0
 
 workflows:
-  Build_and_test:
+  test:
     jobs:
-      - build-and-test
+      - python/test:
+          pip-dependency-file: requirements_dev.txt
+          test-tool: pytest

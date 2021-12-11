@@ -1,6 +1,7 @@
 """
 Tests translator module.
 """
+from os import path
 import unittest
 import verbcalc
 
@@ -11,13 +12,10 @@ class TestTranslator(unittest.TestCase):
     """
 
     def setUp(self):
-        self._custom_symbols = verbcalc.Symbols()
-        self._custom_symbols.additions = ['foo']
-        self._custom_symbols.subtractions = ['bar']
-        self._custom_symbols.multiplications = ['boo']
-        self._custom_symbols.divisions = ['far']
         self.expected = ['2 + 2', '2 - 2', '2 * 2', '2 / 2', '2 ** 2',
                          'abs 2', '2 % 2']
+        self.path = path.join(path.dirname(__file__),
+                              'fixtures/custom_phrasings.json')
 
     def test_translation(self):
         values = [verbcalc.translate('2 plus 2'),
@@ -29,18 +27,10 @@ class TestTranslator(unittest.TestCase):
                   verbcalc.translate('2 mod 2')]
         self.assertListEqual(self.expected, values)
 
-    def test_translation_with_custom_symbols(self):
-        values = [
-            verbcalc.translate('2 foo 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 bar 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 boo 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 far 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 to the power of 2',
-                               symbols=self._custom_symbols),
-            verbcalc.translate('absolute of 2', symbols=self._custom_symbols),
-            verbcalc.translate('2 mod 2', symbols=self._custom_symbols)
-        ]
-        self.assertListEqual(self.expected, values)
+    def test_translation_with_custom_phrasings(self):
+        custom_symbols = verbcalc.Symbols(path_to_phrasings=self.path)
+        self.assertEqual('2 + 2', verbcalc.translate(
+            '2 foo 2', custom_symbols))
 
 
 if __name__ == '__main__':
