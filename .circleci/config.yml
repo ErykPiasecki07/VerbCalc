@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Lint
           command: pylint verbcalc
-      -run:
+      - run:
           name: Show directory
           command: ls
       - run:
