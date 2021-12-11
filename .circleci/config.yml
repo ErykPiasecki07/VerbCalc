@@ -17,11 +17,8 @@ jobs:
           name: Lint
           command: pylint verbcalc
       -run:
-          name: Install tree
-          command: apt install tree
-      -run:
-        name: Show tree
-        command: tree
+          name: Show directory
+          command: ls
       - run:
           name: Run tests
           command: pytest
