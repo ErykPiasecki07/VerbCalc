@@ -1,6 +1,7 @@
 """
 Tests translator module.
 """
+from os import path
 import unittest
 import verbcalc
 
@@ -13,7 +14,8 @@ class TestTranslator(unittest.TestCase):
     def setUp(self):
         self.expected = ['2 + 2', '2 - 2', '2 * 2', '2 / 2', '2 ** 2',
                          'abs 2', '2 % 2']
-        self.path = 'fixtures/custom_phrasings.json'
+        self.path = path.join(path.dirname(__file__),
+                              'fixtures/custom_phrasings.json')
 
     def test_translation(self):
         values = [verbcalc.translate('2 plus 2'),
