@@ -5,7 +5,7 @@ with open('README.md', 'r', encoding='utf-8') as fh:
 
 setup(
     name='verbcalc',
-    version='v1.5.0-beta',
+    version='v1.5.1-beta',
     packages=['verbcalc', 'verbcalc.core', 'verbcalc.tests',
               'verbcalc.translator'],
     package_data={'verbcalc': ['data/*.json']},
