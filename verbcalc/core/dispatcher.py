@@ -68,7 +68,10 @@ class Dispatcher:
                 except ValueError:
                     pass
             if len(tokens) is last_length:
-                raise InvalidExpressionException
+                print(tokens)
+                if tokens[0] in self.arithmetic_operations.items():
+                    if tokens[1] in self.arithmetic_operations.items():
+                        raise
         return float(tokens[0])
 
 

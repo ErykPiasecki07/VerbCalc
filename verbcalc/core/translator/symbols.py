@@ -10,9 +10,10 @@ DEFAULT_SYMBOL_PATH = '../../data/phrasings.json'
 class Symbols:
     """
     Hint:
-        You can edit lists like additions, subtractions etc. to make a library's
-        translation to other language (human language, not programming language)
-        or implement any other custom behaviour you desire.
+        You can edit lists like additions, subtractions etc. to make a
+        library's translation to other language (human language,
+        not programming language) or implement any other
+        custom behaviour you desire.
 
     Stores lists with words corresponding to given symbols.
 
@@ -25,7 +26,7 @@ class Symbols:
             Stores all the symbol keys and their corresponding values.
     """
 
-    def __init__(self, path_to_phrasings: str = DEFAULT_SYMBOL_PATH):
+    def __init__(self, path_to_phrasings: str=DEFAULT_SYMBOL_PATH):
         if path_to_phrasings is DEFAULT_SYMBOL_PATH:
             actual_path = path.join(path.dirname(__file__), path_to_phrasings)
         else:

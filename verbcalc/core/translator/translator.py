@@ -6,7 +6,7 @@ from verbcalc.core.translator.symbols import Symbols
 DEFAULT_SYMBOLS = Symbols()
 
 
-def translate(sentence: str, symbols: Symbols = DEFAULT_SYMBOLS) -> str:
+def translate(sentence: str, symbols: Symbols=DEFAULT_SYMBOLS) -> str:
     """
       Translates maths related words into their symbols.
 

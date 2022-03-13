@@ -13,9 +13,9 @@ DEFAULT_ANSWERS_PATH = '../data/answers.json'
 
 
 def calculate(sentence: str,
-              dispatcher: Dispatcher = DEFAULT_DISPATCHER,
-              path_to_answers: str = DEFAULT_ANSWERS_PATH,
-              silent: bool = False
+              dispatcher: Dispatcher=DEFAULT_DISPATCHER,
+              path_to_answers: str=DEFAULT_ANSWERS_PATH,
+              silent: bool=False
               ) -> str:
     """
     Calculates result from sentence.
